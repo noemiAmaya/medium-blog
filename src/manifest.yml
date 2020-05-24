@@ -1,0 +1,5 @@
+applications:
+- name: medium-api-post
+  memory: 120M
+  stack: cflinuxfs3
+  

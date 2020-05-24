@@ -1,16 +1,22 @@
 const mongoose = require('mongoose')
 
 const articleSchema = new mongoose.Schema({
-  title: {
+  category: {
     type: String,
-    maxlength: 350,
+    enum: ['Development', 'Diseño', 'Educación', 'Lectura', 'Medicina', 'Salud', 'Tecnología'],
     required: true
   },
-  image: {
+  title: {
     type: String,
+    minlength: 25,
     required: true
   },
   description: {
+    type: String,
+    minlength: 100,
+    required: true
+  },
+  tag: {
     type: String,
     required: true
   },
@@ -20,7 +26,7 @@ const articleSchema = new mongoose.Schema({
     maxlength: 30,
     required: true
   },
-  category: {
+  date: {
     type: String,
     required: true
   },
@@ -28,10 +34,11 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  date: {
+  image: {
     type: String,
     required: true
   }
+
 })
 
 module.exports = mongoose.model('articles', articleSchema)
